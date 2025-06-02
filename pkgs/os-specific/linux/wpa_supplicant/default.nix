@@ -34,6 +34,11 @@ stdenv.mkDerivation rec {
       revert = true;
     })
     ./unsurprising-ext-password.patch
+    (fetchpatch {
+      name = "suppress-ctrl-event-signal-change.patch";
+      url = "https://w1.fi/cgit/hostap/patch/?id=c330b5820eefa8e703dbce7278c2a62d9c69166a";
+      hast = "sha256-18lvf1dkzl41xgpcpjjp8wvd3z4bmnd5f7h5846rr6lyc3350cyy";
+    })
   ];
 
   # TODO: Patch epoll so that the dbus actually responds
